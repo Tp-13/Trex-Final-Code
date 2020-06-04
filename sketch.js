@@ -10,6 +10,7 @@ var END = 0
 var gameState = PLAY
 var gameOver,gameOverimg
 var restart,restartimg
+var jump
 
 function preload() {
   trexRunning = loadAnimation("trex1.png","trex3.png","trex4.png"); 
@@ -29,6 +30,8 @@ function preload() {
   gameOverimg = loadImage("gameOver.png");
   
   restartimg = loadImage("restart.png");
+  
+  jump = loadSound("jump.mp3");
 }  
   
 function setup() {
@@ -71,6 +74,7 @@ function draw() {
   
   if (keyDown ("space") && trex.y > 155) {
     trex.velocityY = -10;
+    jump.play();
   }  
   
   trex.velocityY = trex.velocityY + 0.5;
